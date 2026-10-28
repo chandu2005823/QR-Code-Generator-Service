@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="description"
+    content="Generate and download QR codes for text and URLs."
+>
+
+<title>QR Code Generator</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<script src="/script.js" defer></script>
+
+
+</head>
+
+<body>
+    <main class="container">
+        <section class="card">
+            <header class="header">
+                <div class="logo" aria-hidden="true">QR</div>
+
+
+            <h1>QR Code Generator</h1>
+
+            <p class="subtitle">
+                Turn your text or URL into a scannable QR code.
+            </p>
+        </header>
+
+        <form id="qr-form">
+    <label for="qr-text">
+        Enter text or URL
+    </label>
+
+
+<textarea
+    id="qr-text"
+    name="text"
+    placeholder="https://example.com/"
+    maxlength="2000"
+    required
+></textarea>
+
+<div class="character-count">
+    <span id="character-count">0</span>/2000 characters
+</div>
+
+<div class="settings">
+    <div class="setting">
+        <label for="qr-size">Image size</label>
+
+        <select id="qr-size" name="size">
+            <option value="200">Small — 200 px</option>
+            <option value="300" selected>Medium — 300 px</option>
+            <option value="500">Large — 500 px</option>
+        </select>
+    </div>
+
+    <div class="setting">
+        <label for="foreground">Foreground color</label>
+
+        <input
+            id="foreground"
+            name="foreground"
+            type="color"
+            value="#000000"
+        >
+    </div>
+
+    <div class="setting">
+        <label for="background">Background color</label>
+
+        <input
+            id="background"
+            name="background"
+            type="color"
+            value="#ffffff"
+        >
+    </div>
+
+    <div class="setting">
+        <label for="error-correction">
+            Error correction
+        </label>
+
+        <select id="error-correction" name="errorCorrectionLevel">
+            <option value="L">Low</option>
+            <option value="M" selected>Medium</option>
+            <option value="Q">Quartile</option>
+            <option value="H">High</option>
+        </select>
+    </div>
+</div>
+
+<button id="generate-button" type="submit">
+    Generate QR Code
+</button>
+
+
+        </form>
+
+
+        <p
+            id="status-message"
+            class="status-message"
+            role="status"
+            aria-live="polite"
+        ></p>
+
+        <section
+            id="result-section"
+            class="result-section"
+            aria-labelledby="result-heading"
+            hidden
+        >
+            <h2 id="result-heading">Your QR Code</h2>
+
+            <div class="qr-preview">
+                <img id="qr-image" alt="Generated QR code">
+            </div>
+
+            <button id="download-button" type="button">
+                Download PNG
+            </button>
+        </section>
+         </section>
+        <section id="history-section">
+    <h2>QR Code Generation History</h2>
+
+    <button id="refresh-history-button" type="button">
+        Refresh History
+    </button>
+
+    <p id="history-status" role="status" aria-live="polite"></p>
+
+    <div id="history-list">
+        <!-- History records will be added here by JavaScript. -->
+    </div>
+</section>
+   
+</main>
+
+
+</body>
+</html>
